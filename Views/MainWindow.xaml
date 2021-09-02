@@ -35,7 +35,7 @@
             <Button x:Name="btnAdd" Margin="0,5,0,0" Click="onButtonClick" Height="31" FontSize="20">Get Values</Button>
         </StackPanel>
         <ListBox Height="400" ScrollViewer.CanContentScroll="True"
-         ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="listBox" Grid.ColumnSpan="2" Margin="10,0,10,-300" Grid.Row="2" SelectionChanged="listBox_SelectionChanged"></ListBox>
+         ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="listBox" Grid.ColumnSpan="2" Margin="10,0,10,-300" Grid.Row="2"></ListBox>
         <Image Margin="0,313,0,-211" Grid.Row="3" Stretch="Fill" Source="pack://siteoforigin:,,,/chart.jpg" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
     </Grid>
 

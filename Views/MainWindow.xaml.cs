@@ -30,11 +30,11 @@ namespace Lab_2
                 MessageBox.Show($"Ошибка в вводе, функция определена на промежутке от {ChartBorders.Start} до {ChartBorders.End}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            ArrayList dots = _chart.FindFuncValues(minValue, maxValue, dxValue);
+            ArrayList dots = _controller.Chart.FindFuncValues(minValue, maxValue, dxValue);
             listBox.Items.Clear();
-            foreach (var item in dots.ToArray().Select((value, index) => (value, index)))
+            foreach ((double value, int index) item in dots.ToArray().Select((value, index) => (value, index)))
             {
-                listBox.Items.Add($"{item.index}:{item.value}");
+                listBox.Items.Add($"{item.index}:{Math.Round(item.value, 3)}");
             }
         }
 
