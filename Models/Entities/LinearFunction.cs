@@ -1,9 +1,4 @@
 ﻿using Lab_2.Models.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_2.Models.Entities
 {
@@ -20,6 +15,6 @@ namespace Lab_2.Models.Entities
         private double _slope;
         private double _b;
 
-        public double CalculateValue(double x) => _slope * x + _b;
+        public double CalculateValue(double x) => (_slope * x) + _b;
     }
 }

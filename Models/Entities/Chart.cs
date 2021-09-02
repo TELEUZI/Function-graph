@@ -18,7 +18,7 @@ namespace Lab_2.Models.Entities
             _semiCircleFunction = new(-2d);
             _linearFunction3 = new(0, -2);
         }
-        public static bool isLegit(double minValue, double maxValue, double dxValue)
+        public static bool IsLegit(double minValue, double maxValue, double dxValue)
         {
             return minValue < ((double)ChartBorders.Start) || maxValue > (double)ChartBorders.End || dxValue > (maxValue - minValue);
         }
@@ -28,12 +28,12 @@ namespace Lab_2.Models.Entities
             ArrayList funcValues = new();
             for (double currentValue = min; currentValue < max; currentValue += dx)
             {
-                funcValues.Add(getFunction(currentValue)?.CalculateValue(currentValue));
+                funcValues.Add(GetFunction(currentValue)?.CalculateValue(currentValue));
             }
             return funcValues;
         }
 
-        private IFuction getFunction(double min)
+        private IFuction GetFunction(double min)
         {
             if (min <= ((double)ChartBorders.FirstBorder))
             {
@@ -51,10 +51,7 @@ namespace Lab_2.Models.Entities
             {
                 return _semiCircleFunction;
             }
-            else
-            {
-                return null;
-            }
+            return null;
         }
     }
 }
