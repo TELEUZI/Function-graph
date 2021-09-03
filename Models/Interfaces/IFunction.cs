@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_2.Models.Interfaces
 {
-    internal interface IFuction
+    internal interface IFunction
     {
         public double CalculateValue(double x);
     }

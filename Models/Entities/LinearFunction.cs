@@ -2,18 +2,15 @@
 
 namespace Lab_2.Models.Entities
 {
-    internal class LinearFunction : IFuction
+    internal class LinearFunction : IFunction
     {
-        public LinearFunction(double k, double b)
+        public LinearFunction(double slope, double b)
         {
-            _slope = k;
+            _slope = slope;
             _b = b;
         }
-
-        public double Slope { get => _slope; set => _slope = value; }
-        public double B { get => _b; set => _b = value; }
-        private double _slope;
-        private double _b;
+        private readonly double _slope;
+        private readonly double _b;
 
         public double CalculateValue(double x) => (_slope * x) + _b;
     }

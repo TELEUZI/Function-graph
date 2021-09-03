@@ -1,6 +1,6 @@
 ﻿using Lab_2.Models.Enums;
 using Lab_2.Models.Interfaces;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Lab_2.Models.Entities
 {
@@ -23,35 +23,26 @@ namespace Lab_2.Models.Entities
             return minValue < ((double)ChartBorders.Start) || maxValue > (double)ChartBorders.End || dxValue > (maxValue - minValue);
         }
 
-        public ArrayList FindFuncValues(double min, double max, double dx)
+        public IEnumerable<double> FindFuncValues(double min, double max, double dx)
         {
-            ArrayList funcValues = new();
-            for (double currentValue = min; currentValue < max; currentValue += dx)
+            LinkedList<double> funcValues = new();
+            for (var currentValue = min; currentValue < max; currentValue += dx)
             {
-                funcValues.Add(GetFunction(currentValue)?.CalculateValue(currentValue));
+                funcValues.AddLast(GetFunction(currentValue).CalculateValue(currentValue));
             }
             return funcValues;
         }
 
-        private IFuction GetFunction(double min)
+        private IFunction GetFunction(double min)
         {
-            if (min <= ((double)ChartBorders.FirstBorder))
+            return min switch
             {
-                return _linearFunction;
-            }
-            else if (min <= ((double)ChartBorders.SecondBorder))
-            {
-                return _linearFunction2;
-            }
-            else if (min <= ((double)ChartBorders.ThirdBorder))
-            {
-                return _linearFunction3;
-            }
-            else if (min <= ((double)ChartBorders.End))
-            {
-                return _semiCircleFunction;
-            }
-            return null;
+                <= (double) ChartBorders.FirstBorder => _linearFunction,
+                <= (double) ChartBorders.SecondBorder => _linearFunction2,
+                <= (double) ChartBorders.ThirdBorder => _linearFunction3,
+                <= (double) ChartBorders.End => _semiCircleFunction,
+                _ => null
+            };
         }
     }
 }
