@@ -17,12 +17,16 @@ namespace Lab_2.Views
             _chart = new();
             
         }
-
+        private static double GetNumberFromTextBox(TextBox textBox)
+        {
+            var safeString = textBox.Text.Contains('.') ? textBox.Text.Replace('.', ',') : textBox.Text;
+            return double.TryParse(safeString, out var result) ? result : 0.1;
+        }
         private void OnButtonClick(object sender, RoutedEventArgs e)
         {
-            var minValue = getNumberFromTextBox(xMin);
-            var maxValue = getNumberFromTextBox(xMax);
-            var dxValue = getNumberFromTextBox(dx);
+            var minValue = GetNumberFromTextBox(xMin);
+            var maxValue = GetNumberFromTextBox(xMax);
+            var dxValue = GetNumberFromTextBox(dx);
             if (Chart.IsLegit(minValue, maxValue, dxValue))
             {
                 MessageBox.Show(
@@ -41,11 +45,7 @@ namespace Lab_2.Views
             }
         }
 
-        private double getNumberFromTextBox(TextBox textBox)
-        {
-            var safeString = textBox.Text.Contains('.') ? textBox.Text.Replace('.', ',') : textBox.Text;
-            return double.TryParse(safeString, out var result) ? result : 0.1;
-        }
+        
 
     }
 
