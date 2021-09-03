@@ -1,6 +1,5 @@
 ﻿using Lab_2.Models.Entities;
 using Lab_2.Models.Enums;
-using Lab_2.ViewModels;
 using System;
 using System.Collections;
 using System.Linq;
@@ -12,11 +11,11 @@ namespace Lab_2
     
     public partial class MainWindow : Window
     {
-        private readonly MainViewModel _controller;
+        private readonly Chart _chart;
         public MainWindow()
         {
             InitializeComponent();
-            _controller = new();
+            _chart = new();
             
         }
 
@@ -25,12 +24,12 @@ namespace Lab_2
             double minValue = getNumberFromTextBox(xMin);
             double maxValue = getNumberFromTextBox(xMax);
             double dxValue = getNumberFromTextBox(dx);
-            if (Chart.isLegit(minValue, maxValue, dxValue))
+            if (Chart.IsLegit(minValue, maxValue, dxValue))
             {
                 MessageBox.Show($"Ошибка в вводе, функция определена на промежутке от {ChartBorders.Start} до {ChartBorders.End}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            ArrayList dots = _controller.Chart.FindFuncValues(minValue, maxValue, dxValue);
+            ArrayList dots = _chart.FindFuncValues(minValue, maxValue, dxValue);
             listBox.Items.Clear();
             foreach ((double value, int index) item in dots.ToArray().Select((value, index) => (value, index)))
             {
