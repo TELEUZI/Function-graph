@@ -9,7 +9,8 @@
 *.user
 *.userosscache
 *.sln.docstates
-obj
+obj/
+bin/
 Lab_2.csproj
 Lab_2.sln
 # User-specific files (MonoDevelop/Xamarin Studio)
