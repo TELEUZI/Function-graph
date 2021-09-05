@@ -14,5 +14,4 @@ namespace Lab_2.Models.Enums
         ThirdBorder = 6,
         End = 10
     }
-
 }

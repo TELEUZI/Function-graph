@@ -9,6 +9,7 @@ namespace Lab_2.Models.Entities
             _slope = slope;
             _b = b;
         }
+
         private readonly double _slope;
         private readonly double _b;
 
