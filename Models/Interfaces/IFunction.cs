@@ -10,5 +10,4 @@ namespace Lab_2.Models.Interfaces
     {
         public double CalculateValue(double x);
     }
-
 }

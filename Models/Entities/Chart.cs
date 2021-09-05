@@ -18,9 +18,11 @@ namespace Lab_2.Models.Entities
             _semiCircleFunction = new(-2d);
             _linearFunction3 = new(0, -2);
         }
-        public static bool IsLegit(double minValue, double maxValue, double dxValue)
+
+        public static bool IsLegitValues(double minValue, double maxValue, double dxValue)
         {
-            return minValue < ((double)ChartBorders.Start) || maxValue > (double)ChartBorders.End || dxValue > (maxValue - minValue);
+            return minValue < ((double) ChartBorders.Start) || maxValue > (double) ChartBorders.End ||
+                   dxValue > (maxValue - minValue);
         }
 
         public IEnumerable<double> FindFuncValues(double min, double max, double dx)
@@ -30,6 +32,7 @@ namespace Lab_2.Models.Entities
             {
                 funcValues.AddLast(GetFunction(currentValue).CalculateValue(currentValue));
             }
+
             return funcValues;
         }
 
